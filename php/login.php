@@ -4,7 +4,7 @@
 	require_once "conexion.php";
 
 	$usuario=$_POST['usuario'];
-	$contraseña=sha1($_POST['contraseña']);
+	$contrasena=sha1($_POST['contraseña']);
 
 
 	$sql="SELECT * FROM login where usuario='$usuario' and contraseña= '$contraseña'";
@@ -19,4 +19,4 @@
 
 
   ?>
-	
+
