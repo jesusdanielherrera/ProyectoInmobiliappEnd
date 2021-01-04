@@ -3,7 +3,7 @@
 	require_once "conexion.php";
 
 	$usuario=$_POST['usuario'];
-	$contraseña=$_POST['contraseña'];
+	$contraseña=sha1($_POST['contraseña']);
 	$correo=$_POST['correo'];
 	$direccion=$_POST['direccion'];
 	$tipodeusuario=$_POST['tipodeusuario'];
