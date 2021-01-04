@@ -111,6 +111,60 @@ function actualizaDatosv() {
                   }
               })
 }
+//EDITAR EL USUARIO REGISTRADO...//
+
+function actualizarusuarios(datosu){
+
+	d=datosu.split('||');
+
+	$('#idusuario').val(d[0]);
+	$('#usuario').val(d[1]);
+	$('#correo').val(d[3]);
+	$('#direccion').val(d[4]);
+	$('#tipodeusuario').val(d[5]);
+	$('#Nombre').val(d[6]);
+	$('#Apellido').val(d[7]);
+	$('#Telefono').val(d[8]);
+	$('#cedula').val(d[9]);
+}
+
+function actualizaDatosu() {
+
+	idusuario=$('#idusuario').val();
+	usuario=$('#usuario').val();
+	correo=$('#correo').val();
+	direccion=$('#direccion').val();
+	tipodeusuario=$('#tipodeusuario').val();
+	Nombre=$('#Nombre').val();
+	Apellido=$('#Apellido').val();
+	Telefono=$('#Telefono').val();
+	cedula=$('#cedula').val();
+
+
+	cadena="idusuario="+idusuario+
+		   "&usuario="+usuario+
+		   "&correo="+correo+
+		   "&direccion="+direccion+
+		   "&tipodeusuario="+tipodeusuario+
+		   "&Nombre="+Nombre+
+		   "&Apellido="+Apellido+
+		   "&Telefono="+Telefono+
+		   "&cedula="+cedula;
+
+		    $.ajax({
+                  type:"POST",
+                  url:"php/ActualizarUsuarios.php",
+                  data:cadena,
+                  success:function(r){
+                    if(r==1){
+                       alertify.success("Actualizado con exito");
+                    }else{
+                      alertify.error("Fallo al registrar");
+                    }
+                  }
+              })
+}
+
 
 function preguntarSiNo(iddelestadoA){
 	alertify.confirm('Eliminar Datos', '¿Estar seguro de Eliminar este dato?'
@@ -146,6 +200,29 @@ function eliminardatoP(iddelestadoP){
 	$.ajax({
                   type:"POST",
                   url:"php/eliminardatoP.php",
+                  data:cadena,
+                  success:function(r){
+                    if(r==1){
+                       alertify.success("Eliminado con exito");
+                    }else{
+                      alertify.error("Fallo al registrar");
+                    }
+                  }
+              })
+}
+
+function preguntarSiNoU(idusuario){
+	alertify.confirm('Eliminar Datos', '¿Estar seguro de Eliminar este dato?'
+				, function(){ eliminardato(idusuario) }
+                , function(){ alertify.error('Cancel')});
+}
+
+function eliminardato(idusuario){
+	cadena="idusuario="+idusuario;
+
+	$.ajax({
+                  type:"POST",
+                  url:"php/eliminardatou.php",
                   data:cadena,
                   success:function(r){
                     if(r==1){

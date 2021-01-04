@@ -13,7 +13,7 @@
      if(isset($_SESSION['user'])){ 
       
       $usuario = $_SESSION['user'];
-      $sql = "SELECT  idusuario, usuario, contraseña, direccion, correo from login where usuario='$usuario' and tipodeusuario='Asesor'";
+      $sql = "SELECT  * from login where usuario='$usuario' and tipodeusuario='Asesor'";
       $result=mysqli_query($conexion,$sql);
 ?>
 <body>
@@ -38,12 +38,12 @@
            <?php       
             while ($dato=mysqli_fetch_array($result)) {
             ?><b>
-            <?php  echo $dato['usuario'];
+            <?php  echo $dato['Nombre'];
              ?>
            </b>
         </a>
         <div class="dropdown-menu" style="position: absolute; top:50px;" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item"  type="button" href="perfilC.php">Perfil</a>
+
           <a type="button" class="dropdown-item" href="php/cerrarsesion.php">Cerrar Sesion</a>
           </a>
       </li>
@@ -58,7 +58,7 @@
          <div class="container-fluid table-bordered">
             <H4><br>
               <b>
-                Perfil del Asesor: <?php echo $dato['usuario']; ?>.
+                Perfil del Asesor: <?php echo $dato['Nombre']; ?>.
                  <br>
               </b>
               <br>
@@ -71,18 +71,24 @@
             <thead>
               <tr>
                   <th scope="col" >ID</th>
-                  <th scope="col" >Usuario</th>
-                  <th scope="col" >Contraseña</th>
-                  <th scope="col" >Direccion</th>
+                  <th scope="col" >Nombre</th>
+                  <th scope="col" >Apellido</th>
                   <th scope="col" >Correo</th>
+                  <th scope="col" >Direccion</th>
+                  <th scope="col" >Telefono</th>
+                  <th scope="col" >Cedula</th>
+                  <th scope="col" >Tipo de usuario</th>
               </tr>
               <tbody>
                 <tr>
-                    <th scope="row"><?php echo $dato['idusuario']; ?></th>
-                    <td><?php echo $dato['usuario']; ?></td>
-                    <td><?php echo $dato['contraseña']; ?></td>
+                   <th scope="row"><?php echo $dato['idusuario']; ?></th>
+                    <td><?php echo $dato['Nombre']; ?></td>
+                    <td><?php echo $dato['Apellido']; ?></td>
                     <td><?php echo $dato['correo']; ?></td>
-                    <td><?php echo $dato['direccion'];} ?></td>
+                    <td><?php echo $dato['direccion'];?></td>
+                    <td><?php echo $dato['Telefono'];?></td>
+                    <td><?php echo $dato['cedula']; ?></td>
+                    <td><?php echo $dato['tipodeusuario'];} ?></td>
                 </tr>
               </tbody>
             </thead>
@@ -105,10 +111,9 @@
               <a href="ArriendorealizadosA.php" type="button" class="btn btn-danger">Registro de Arriendos</a>
           </div>
           <div class="col">
-             <h4>Contabilidad</h4>
+            <h4>Contabilidad</h4>
             <a href="ContaVentaA.php" type="button" class="btn btn-danger">Ventas</a>
             <a href="ContaArriendoA.php" type="button" class="btn btn-danger">Arriendo</a>
-            <a href="" type="button" class="btn btn-danger">Comision</a>
           </div>
         </div>
          <hr>

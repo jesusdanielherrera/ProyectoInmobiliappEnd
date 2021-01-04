@@ -36,7 +36,6 @@
         <input class="form-control" id="contraseña"type="password" placeholder="Ingrese la contraseña">
       </div>
       <a href="#"> ¿Ha perdido su contraseña?</a><br>
-      <a href="registro.php"> ¿No tienes una Cuenta?</a> 
       <p></p>
       <span class="btn btn-primary btn-block" id="entrar">Ingresar</span> 
 

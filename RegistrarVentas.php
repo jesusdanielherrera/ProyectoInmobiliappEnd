@@ -13,7 +13,7 @@
      if(isset($_SESSION['user'])){ 
       
       $usuario = $_SESSION['user'];
-      $sql = "SELECT  usuario from login where usuario='$usuario'";
+      $sql = "SELECT  * from login where usuario='$usuario'";
       $result=mysqli_query($conexion,$sql);
 ?>
 <body>
@@ -38,12 +38,11 @@
            <?php       
             while ($dato=mysqli_fetch_array($result)) {
             ?><b>
-            <?php  echo $dato['usuario'];}
+            <?php  echo $dato['Nombre'];}
              ?>
            </b>
         </a>
         <div class="dropdown-menu" style="position: absolute; top:50px;" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item"  type="button" href="perfilC.php">Perfil</a>
           <a type="button" class="dropdown-item" href="php/cerrarsesion.php">Cerrar Sesion</a>
           </a>
       </li>
