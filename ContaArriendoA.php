@@ -72,7 +72,9 @@
                $datos = $dato['idusuario'];
              $sqls = "SELECT  idarriendoa, iddelestadoA, precioarriendo, (precioarriendo*0.10) as result from registroarriendo  where idarriendoa='$datos'";}
              $results=mysqli_query($conexion,$sqls);   
+             $total=0;
              while ($datos=mysqli_fetch_array($results)) {
+              $total = $total + $datos['result'];
             ?>
                   <tr>
                       <th scope="row" class="text-center"> <?php echo $datos['iddelestadoA'];?></th>
@@ -81,6 +83,7 @@
                       <td class="text-center">10%</td>
                       <td class="text-center"><?php echo $datos['result'] ;}?></td>
                   </tr>
+                  <th colspan="4" class="text-center"><b>TOTAL DE ARRIENDOS</b></th><td class="text-center"><?= $total ;?></td>
                 </tbody>
         </table>
       </div>

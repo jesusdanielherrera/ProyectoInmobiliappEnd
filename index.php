@@ -35,8 +35,6 @@
         <label><b>Contraseña</b></label>
         <input class="form-control" id="contraseña"type="password" placeholder="Ingrese la contraseña">
       </div>
-      <a href="#"> ¿Ha perdido su contraseña?</a><br>
-      <a href="registrarU.php">registrar</a>
       <p></p>
       <span class="btn btn-primary btn-block" id="entrar">Ingresar</span> 
 
@@ -50,7 +48,6 @@
     $('#entrar').click(function(){
       if($('#usuario').val()==""){
         alertify.alert("Debes agregar el usuario");
-        hola
         return false;
       }else if ($('#contraseña').val()==""){
       alertify.alert("Debes agregar la contraseña");

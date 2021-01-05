@@ -88,7 +88,7 @@
                       <td class="text-center">10%</td>
                       <td class="text-center"><?php echo $datos['result'] ;}?></td>
                   </tr>
-                  <th colspan="4" class="text-center"><b>TOTAL DE VENTAS</b></th><td class="text-center"><?= $total ;?></td>
+                  <th colspan="4" class="text-center"><b>TOTAL DE ARRIENDOS</b></th><td class="text-center"><?= $total ;?></td>
                 </tbody>
         </table>
       </div>
