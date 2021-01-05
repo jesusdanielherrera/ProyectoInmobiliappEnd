@@ -38,7 +38,7 @@
            <?php       
             while ($dato=mysqli_fetch_array($result)) {
             ?><b>
-            <?php  echo $dato['usuario'];}
+            <?php  echo $dato['Nombre'];}
              ?>
            </b>
         </a>

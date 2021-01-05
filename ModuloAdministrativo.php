@@ -66,7 +66,7 @@
            <form class="form-inline my-2 my-lg-0">
           <div>
             <br>
-          <table class="table table-bordered table-responsive">
+          <table class=" table table-bordered table-responsive">
             <thead>
               <tr>
                   <th scope="col" >ID</th>

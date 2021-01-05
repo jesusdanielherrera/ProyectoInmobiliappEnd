@@ -35,7 +35,7 @@
           <h6>Tipos De usuario</h6>
           <select class="form-control" id="tipodeusuario">
             <option>Asesor</option>
-            <option>Adminisitrador</option>
+            <option>Administrador</option>
           </select>
         </div>
       <div class="form-group">
@@ -58,6 +58,7 @@
       <p></p>
       
       <span type="submit" class="btn btn-primary btn-block" id="registrarnuevo">Registrar Usuario</span> 
+      <a href="ModuloAdministrativo.php">¿No quieres Registrar un Usuario?</a>
 	   </div>
    </form>
 </div>

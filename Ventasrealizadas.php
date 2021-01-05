@@ -38,7 +38,7 @@
            <?php       
             while ($dato=mysqli_fetch_array($result)) {
             ?><b>
-            <?php  echo $dato['Nombre'];
+            <?php  echo $dato['Nombre'];}
              ?>
            </b>
         </a>
@@ -50,23 +50,12 @@
      
     </form >
     </nav>
-     	<nav aria-label="breadcrumb" class="container-fluid">
+     	<nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item active" aria-current="page"><a href="ModuloAdministrativo.php">Modulo Administrativo</a></li>
           <li class="breadcrumb-item active" aria-current="page">Ventas Realizadas</li>
         </ol>
-         <div class="container-fluid table-bordered">
-            <H5 class="container-fluid"><br>
-              <b>
-                Perfil del Asesor: <?php echo $dato['Nombre']; }?>.
-                 <br>
-              </b>
-              <br>
-            </H5>
-            <div class="container-fluid table-bordered table-responsive">
-     			<br>
-          		<h5>Tabla de Registros Ventas</h5>
-          		<table class="table table-bordered table-responsive">
+          		<table class="container table table-bordered table-responsive">
 		          <thead>
 		            <th colspan="12"><b><h5>VIVIENDAS EN VENTAS</h5></b></th>
 		            <tr class="text-center">             
@@ -125,9 +114,7 @@
 	                  </tr>
 	              </tbody>
                 <?php } ?>
-		        	</div>
-              <hr>
-          </div>   		
+		        			
 <?php  }else{
 	header("Location: php/Validar.php");
 } ?>

@@ -213,7 +213,7 @@ function eliminardatoP(iddelestadoP){
 
 function preguntarSiNoU(idusuario){
 	alertify.confirm('Eliminar Datos', '¿Estar seguro de Eliminar este dato?'
-				, function(){ eliminardato(idusuario) }
+				, () => { eliminardato(idusuario )}
                 , function(){ alertify.error('Cancel')});
 }
 

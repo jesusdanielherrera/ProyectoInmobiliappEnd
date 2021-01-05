@@ -56,18 +56,7 @@
           <li class="breadcrumb-item active" aria-current="page">Modulo Administrativo</li>
           
         </ol>
-         <div class="container-fluid table-bordered">
-            <H5 class="container-fluid"><br>
-              <b>
-                Perfil del Asesor: <?php echo $dato['usuario']; ?>.
-                 <br>
-              </b>
-              <br>
-            </H5>
-            <div class="container-fluid table-bordered table-responsive">
-     			<br>
-          		<h5>Tabla de Registros Ventas</h5>
-          		<table class="table table-bordered table-responsive">
+          		<table class="container table table-bordered table-responsive">
 		          <thead>
 		            <th colspan="12"><b><h5>VIVIENDAS EN VENTAS</h5></b></th>
 		            <tr class="text-center">             
@@ -126,10 +115,7 @@
 	                      </td>               
 	                  </tr>
 	              </tbody>
-                <?php } ?>
-		        	</div>
-              <hr>
-          </div>   		
+                <?php } ?>	
 <?php  }else{
 	header("Location: php/Validar.php");
 } ?>

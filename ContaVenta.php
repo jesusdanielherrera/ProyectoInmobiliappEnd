@@ -38,7 +38,7 @@
            <?php       
             while ($dato=mysqli_fetch_array($result)) {
             ?><b>
-            <?php  echo $dato['Nombre'];
+            <?php  echo $dato['Nombre'];}
              ?>
            </b>
         </a>
@@ -55,16 +55,16 @@
             <li class="breadcrumb-item"aria-current="page"><a href="ModuloAdministrativo.php">Modulo Administrativo</a></li>
             <li class="breadcrumb-item active" aria-current="page">Contabilidad en Ventas</li>
       </nav>
-      <div class="container">
-        <div class="table-bordered"><br>
-          <th><B>CONTABILIDAD EN VENTAS</B></th><br><hr>
-          <th><B>ID: <?php echo  $dato['idusuario']; ?></B></th><br><hr>
-          <th><B>USUARIO: <?php echo  $dato['Nombre']; }?></B></th><hr>
+      <div class="container-fluid">
+        <div class="table-bordered table-responsive"><hr>
+          < <th><B>CONTABILIDAD EN VENTAS</B></th> >
+
+          <hr>
         </div>
       </div>
-      <div class="container">
+      <div class="container-fluid">
        
-        <table class="table table-bordered">
+        <table class="table table-bordered table table-responsive">
           <thead>
             <th colspan="5"><b><h5>VIVIENDAS EN VENTAS</h5></b></th>
             <tr class="text-center">
@@ -74,13 +74,17 @@
               <th scope="cole"  class="text-center">VALOR DE VENTA</th>
               <th scope="cole"  class="text-center">VALOR COMISION</th>
               <th scope="cole"  class="text-center">VALOR A PAGAR</th>
+              
             </tr>
           </thead>
+          
            <tbody>  
               <?php
              $sqls = "SELECT  idarriendov,iddelestadoP, preciopropiedad, (preciopropiedad*0.10) as result from registroventa";
              $results=mysqli_query($conexion,$sqls);   
+             $total = 0; 
              while ($datos=mysqli_fetch_array($results)) {
+                $total = $total + $datos['result'];
             ?>
                   <tr>
                       <th scope="row" class="text-center"> <?php echo $datos['iddelestadoP'];?></th>
@@ -89,6 +93,7 @@
                       <td class="text-center">10%</td>
                       <td class="text-center"><?php echo $datos['result'] ;}?></td>
                   </tr>
+                  <th colspan="4" class="text-center"><b>TOTAL DE VENTAS</b></th><td class="text-center"><?= $total ;?></td>
                 </tbody>
         </table>
       </div>

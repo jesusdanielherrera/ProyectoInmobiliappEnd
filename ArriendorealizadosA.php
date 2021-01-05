@@ -55,17 +55,8 @@
           <li class="breadcrumb-item active" aria-current="page"><a href="ModuloAsesor.php">Modulo Administrativo</a></li>
           <li class="breadcrumb-item active" aria-current="page">Arriendo Realizados</li>
         </ol>
-         <div class="container-fluid table-bordered ">
-            <H5 class="container-fluid"><br>
-              <b>
-                Perfil del Asesor: <?php echo $dato['usuario']; ?>.
-                 <br>
-              </b>
-              <br>
-            </H5>
             <div class="container-fluid table-bordered table-responsive">
-     			<br>
-          		<h5>Tabla de Registros Arriendos</h5>
+
           		<table class="table table-bordered table-responsive">
 		          <thead>
 		            <th colspan="12"><b><h5>VIVIENDAS EN ARRIENDO</h5></b></th>
@@ -124,10 +115,7 @@
 	                      </td>               
 	                  </tr>
 	              </tbody>
-                <?php } ?>
-		        	</div>
-              <hr>
-          </div>   		
+                <?php } ?> 		
 <?php  }else{
 	header("Location: php/Validar.php");
 } ?>

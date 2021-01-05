@@ -55,18 +55,8 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item active" aria-current="page">Modulo Administrativo</li>
         </ol>
-         <div class="container-fluid table-bordered">
-            <H4><br>
-              <b>
-                Perfil del Asesor: <?php echo $dato['Nombre']; ?>.
-                 <br>
-              </b>
-              <br>
-            </H4>
-          </div>
           <form class="form-inline my-2 my-lg-0">
           <div>
-            <br>
           <table class="table table-bordered table-responsive">
             <thead>
               <tr>
@@ -96,7 +86,6 @@
           </div>
           </form>
       </nav>
-        <br>
       <div class="container-fluid"> 
         <hr> 
         <div class="row"> 
@@ -116,8 +105,7 @@
             <a href="ContaArriendoA.php" type="button" class="btn btn-danger">Arriendo</a>
           </div>
         </div>
-         <hr>
-      </div>
+
 <?php  }else{
 	 header("Location: php/Validar.php");
 } ?>

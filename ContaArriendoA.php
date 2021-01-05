@@ -56,13 +56,6 @@
             <li class="breadcrumb-item active" aria-current="page">Contabilidad Arriendos</li>
       </nav>
       <div class="container">
-        <div class="table-bordered"><br>
-          <th><B>CONTABILIDAD ARRIENDOS</B></th><br><hr>
-          <th><B>ID: <?php echo  $dato['idusuario']; ?></B></th><br><hr>
-          <th><B>USUARIO: <?php echo  $dato['Nombre']; ?></B></th><hr>
-        </div>
-      </div>
-      <div class="container">
         <table class="table table-bordered">
           <thead>
             <th colspan="5"><b><h5>VIVIENDAS EN ARRIENDOS</h5></b></th>

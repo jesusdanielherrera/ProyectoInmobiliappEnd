@@ -56,13 +56,6 @@
             <li class="breadcrumb-item active" aria-current="page">Contabilidad en Ventas</li>
       </nav>
       <div class="container">
-        <div class="table-bordered"><br>
-          <th><B>CONTABILIDAD EN VENTAS</B></th><br><hr>
-          <th><B>ID: <?php echo  $dato['idusuario']; ?></B></th><br><hr>
-          <th><B>USUARIO: <?php echo  $dato['Nombre']; ?></B></th><hr>
-        </div>
-      </div>
-      <div class="container">
        
         <table class="table table-bordered">
           <thead>
