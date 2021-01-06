@@ -13,7 +13,7 @@
      if(isset($_SESSION['user'])){ 
       
       $usuario = $_SESSION['user'];
-      $sql = "SELECT  * from login where usuario='$usuario' and tipodeusuario='Administrador'";
+      $sql = "SELECT * from login where usuario='$usuario' and tipodeusuario='Administrador'";
       $result=mysqli_query($conexion,$sql);
 ?>
 <body>
@@ -50,27 +50,31 @@
      
     </form >
     </nav>
-     	<nav aria-label="breadcrumb" class="container-fluid">
+     	<nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item" aria-current="page"><a href="ModuloAdministrativo.php">Modulo Administrativo</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Arriendo Realizados</li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="ModuloAdministrativo.php">Modulo Administrativo</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Ventas Realizadas</li>
         </ol>
-            <div class="container-fluid table-bordered table-responsive">
-     			<br>
-          		<h5>Tabla de Registros Arriendos</h5>
-          		<table class="table table-bordered table-responsive">
+          		<table class="container table table-bordered table-responsive">
 		          <thead>
-		            <th colspan="8"><b><h5>VIVIENDAS EN ARRIENDO</h5></b></th>
-                <form action="BuscarIDa.php" method="get" class="form-search">
+		            <th colspan="8"><b><h5>VIVIENDAS EN VENTAS</h5></b></th>
+                    <?php
+                        $Buscar = strtolower($_REQUEST['Buscar']);
+
+                        if(empty($Buscar)){
+                            header("Location: Ventasrealizadas.php");
+                        }
+                    ?>
+                <form action="BuscarIDp.php" method="get" class="form-search">
                 <!-- BUSCADOR POR ID DE ARRIENDO -->
-                <th colspan="3"> <input type="text" class="form-control" id="BuscarA" name="BuscarA" ></th>
-                <th colspan="3"> <input type="submit" class="btn btn-primary btn-block" id="BuscarIDa" Value="Buscar..." ></th>
+                <th colspan="3"> <input type="text" class="form-control" id="Buscar" name="Buscar" value="<?php echo $Buscar;?>" ></th>
+                <th colspan="3"> <input type="submit" class="btn btn-primary btn-block" id="BuscarID" Value="Buscar..." ></th>
                 </form>
 		            <tr class="text-center">             
 		             
 		              <th scope="col" >ID Arriendo</th>
-                  <th scope="col" >ID Usuario</th>
-		              <th scope="col" >tipo de arriendo</th>
+                      <th scope="col" >ID Usuario</th>
+		              <th scope="col" >tipo de Propiedad</th>
 		              <th scope="col" >Estado </th>
 		              <th scope="col" >Precio </th>
 		              <th scope="col" >Vistas </th>
@@ -83,11 +87,11 @@
 		            </tr>
 		          </thead>
 		          <?php
-          		 	$sqll="SELECT * FROM registroarriendo";
+          		 	$sqll="SELECT * FROM registroventa where iddelestadoP LIKE '$Buscar'";
           		 	$resultl=mysqli_query($conexion,$sqll);
 
           		 	while ($mostrar=mysqli_fetch_row($resultl)) {
-                      $datos=$mostrar[0]."||".
+                      $datosv=$mostrar[0]."||".
                              $mostrar[1]."||".
                              $mostrar[2]."||".
                              $mostrar[3]."||".
@@ -112,18 +116,17 @@
 	                      <td class="text-center"> <?php echo $mostrar[8] ;?></td>
 	                      <td class="text-center"> <?php echo $mostrar[9] ;?></td>
 	                      <td class="text-center"> <?php echo $mostrar[10] ;?></td>
-	                      <td >
-	                      	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Editar" onclick="agregaform('<?php echo $datos ?>')">
+	                      <td>
+	                      	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Editar" onclick="agregaforma('<?php echo $datosv ?>')">
                           Editar</button>
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Eliminar"  onclick="preguntarSiNo('<?php echo $mostrar[0] ?>')">
+
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Eliminar" onclick="preguntarSiNoP('<?php echo $mostrar[0] ?>')">
                           Eliminar</button>
 	                      </td>               
 	                  </tr>
 	              </tbody>
                 <?php } ?>
-		        	</div>
-              <hr>
-          </div>   		
+		        			
 <?php  }else{
 	header("Location: php/Validar.php");
 } ?>
@@ -138,79 +141,82 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <div class="modal-body">
-                           <div class="container-fluid table table-bordered">
-                  <div class="col-sm-auto col-md-auto col-xl-auto">
-                    <br>
-                    <h4>DETALLES BASICOS: </h4>
-                    </div>
-                    <hr>
-                   <div class="row">
-                     <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      Id arriendo: <br>
-                      <input type="text" class="form-control" id="iddelestadoA" >
-                    </div>
-                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      Id Acesor o Administrador: <br>
-                      <input type="text" class="form-control" id="idarriendoa">
-                    </div>
-                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      Tipo de Propiedad: <br>
-                      <input type="text" class="form-control" id="tipoarriendo" >
-                    </div>
+                    <div class="modal-body">
+                      <div class="container-fluid table table-bordered">
+                        <div class="col-sm-auto col-md-auto col-xl-auto">
+                          <br>
+                          <h4>DETALLES BASICOS: </h4>
+                        </div>
+                        <hr>
+                        <div class="row">
+                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                             Id  Venta: <br>
+                            <input type="text" class="form-control" id="iddelestadoP" >
+                          </div>
+                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                             Id Acesor o Administrador: <br>
+                            <input type="text" class="form-control" id="idarriendov" >
+                          </div>
+                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            Tipo de Propiedad: <br>
+                            <input type="text" class="form-control" id="tipoPropiedad" >
+                          </div>
+                       
+                          <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
+                            Estado: <br>
+                            <select class="form-control" id="tipolistado">
+                              <option>En Venta</option>
+                              <option>Vendida</option>
+                            </select>
+                          </div>
+                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            Precio de Propiedad:   <br>
+                             <input type="text" class="form-control" id="preciopropiedad" >
+                          </div>
                  
-                    <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
-                      Estado: <br>
-                       <input type="text" class="form-control" id="tipolistado">
-                    </div>
+                          <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
+                            Vistas de la Propiedad:   <br>
+                             <input type="text" class="form-control" id="vistapropiedad" >
+                          </div>
+                
+                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            Dormitorios:<br>
+                             <input type="text" class="form-control" id="dormitorios" >
+                          </div>
+                          
+                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            Antiguedad: <br>
+                             <input type="text" class="form-control" id="antiguedad" >
+                          </div>
 
-                    <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
-                      Precio de Arriendo:   <br>
-                       <input type="text" class="form-control" id="precioarriendo">
-                    </div>
-           
-                    <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
-                      Vistas de Arriendo:   <br>
-                       <input type="text" class="form-control" id="vistaarriendo">
-                    </div>
-          
-                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      Dormitorios:<br>
-                       <input type="text" class="form-control" id="dormitorios" >
-                    </div>
-                    
-                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      Antiguedad: <br>
-                       <input type="text"  class="form-control" id="antiguedad">
-                    </div>
-
-                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      Terrenos :   <br>
-                       <input type="text" class="form-control" id="terrenos">
-                    </div>
-                     <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      CIUDAD: <br>
-                      <input type="text"  class="form-control" id="ciudad">
-                    </div>
-                    
-                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      PISO #: <br>
-                       <input type="text" class="form-control" id="piso" >
-                    </div>   
-                  </div>
-            </div>
+                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            Terrenos :   <br>
+                             <input type="text" class="form-control" id="terrenos">
+                          </div>
+                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            CIUDAD: <br>
+                            <input type="text" class="form-control" id="ciudad">
+                          </div>
+                          
+                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            PISO #: <br>
+                             <input type="text" class="form-control" id="piso" >
+                          </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" id="actualizadatos"data-dismiss="modal">Actualizar</button>
+                          <button type="button" class="btn btn-secondary" id="actualizadatosv"data-dismiss="modal">Actualizar</button>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+                  </div>
                   </form>
 <script type="text/javascript">
   $(document).ready(function(){
-    $('#actualizadatos').click(function() {
-      actualizaDatos();
+    $('#actualizadatosv').click(function() {
+      actualizaDatosv();
     });
   })
 </script>

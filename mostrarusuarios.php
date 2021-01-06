@@ -54,11 +54,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item active" aria-current="page"><a href="ModuloAdministrativo.php">Modulo Administrativo</a></li>
           <li class="breadcrumb-item active" aria-current="page">Usuarios Registrados</li>
-        </ol>
-         <div class="container-fluid table-bordered">
-           
-            <div class="container-fluid table-bordered table-responsive">
-     			<br>
+        </ol><hr>
           		<h5>Tabla Registros de usuario</h5>
           		<table class="table table-bordered table-responsive">
 		          <thead>

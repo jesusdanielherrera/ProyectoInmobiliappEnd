@@ -57,7 +57,12 @@
         </ol>
           		<table class="container table table-bordered table-responsive">
 		          <thead>
-		            <th colspan="12"><b><h5>VIVIENDAS EN VENTAS</h5></b></th>
+		            <th colspan="8"><b><h5>VIVIENDAS EN VENTAS</h5></b></th>
+                <form action="BuscarIDp.php" method="get" class="form-search">
+                <!-- BUSCADOR POR ID DE ARRIENDO -->
+                <th colspan="3"> <input type="text" class="form-control" id="Buscar" name="Buscar" ></th>
+                <th colspan="3"> <input type="submit" class="btn btn-primary btn-block" id="BuscarID" Value="Buscar..." ></th>
+                </form>
 		            <tr class="text-center">             
 		             
 		              <th scope="col" >ID Arriendo</th>
@@ -150,9 +155,12 @@
                             <input type="text" class="form-control" id="tipoPropiedad" >
                           </div>
                        
-                          <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
-                            Tipo de Listado: <br>
-                             <input type="text" class="form-control" id="tipolistado" >
+                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            Estado: <br>
+                            <select class="form-control" id="tipolistado">
+                              <option>En Venta</option>
+                              <option>Vendida</option>
+                            </select>
                           </div>
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                             Precio de Propiedad:   <br>
@@ -189,7 +197,7 @@
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" id="actualizadatosv"data-dismiss="modal">Actualizar</button>
+                          <button type="button" class="btn btn-primary btn-block" id="actualizadatosv"data-dismiss="modal">Actualizar</button>
                         </div>
                       </div>
                     </div>

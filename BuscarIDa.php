@@ -58,12 +58,19 @@
             <div class="container-fluid table-bordered table-responsive">
      			<br>
           		<h5>Tabla de Registros Arriendos</h5>
+                  <?php
+                        $BuscarA = strtolower($_REQUEST['Buscar']);
+
+                        if(empty($BuscarA)){
+                            header("Location: Ventasrealizadas.php");
+                        }
+                    ?>
           		<table class="table table-bordered table-responsive">
 		          <thead>
 		            <th colspan="8"><b><h5>VIVIENDAS EN ARRIENDO</h5></b></th>
                 <form action="BuscarIDa.php" method="get" class="form-search">
                 <!-- BUSCADOR POR ID DE ARRIENDO -->
-                <th colspan="3"> <input type="text" class="form-control" id="BuscarA" name="BuscarA" ></th>
+                <th colspan="3"> <input type="text" class="form-control" id="BuscarA" name="BuscarA" value="<?php echo $Buscar;?>" ></th>
                 <th colspan="3"> <input type="submit" class="btn btn-primary btn-block" id="BuscarIDa" Value="Buscar..." ></th>
                 </form>
 		            <tr class="text-center">             
@@ -83,7 +90,7 @@
 		            </tr>
 		          </thead>
 		          <?php
-          		 	$sqll="SELECT * FROM registroarriendo";
+          		 	$sqll="SELECT * FROM registroarriendo where iddelestadoP LIKE '$Buscar'";
           		 	$resultl=mysqli_query($conexion,$sqll);
 
           		 	while ($mostrar=mysqli_fetch_row($resultl)) {
