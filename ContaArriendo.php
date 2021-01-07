@@ -56,8 +56,8 @@
             <li class="breadcrumb-item active" aria-current="page">Contabilidad Arriendos</li>
       </nav>
       <div class="container-fluid">
-        <div class="table-bordered table-responsive"><hr><
-          <th><B>CONTABILIDAD DE ARRIENDO</B></th> >
+        <div class="table-bordered table-responsive"><hr>
+          <th><B>CONTABILIDAD DE ARRIENDO</B></th> 
           <hr>
         </div>
       </div>

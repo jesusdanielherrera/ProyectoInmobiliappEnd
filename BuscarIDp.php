@@ -73,7 +73,7 @@
 		            <tr class="text-center">             
 		             
 		              <th scope="col" >ID Arriendo</th>
-                      <th scope="col" >ID Usuario</th>
+                  <th scope="col" >ID Usuario</th>
 		              <th scope="col" >tipo de Propiedad</th>
 		              <th scope="col" >Estado </th>
 		              <th scope="col" >Precio </th>
@@ -87,7 +87,7 @@
 		            </tr>
 		          </thead>
 		          <?php
-          		 	$sqll="SELECT * FROM registroventa where iddelestadoP LIKE '$Buscar'";
+          		 	$sqll="SELECT * FROM registroventa where iddelestadoP LIKE '$Buscar' OR tipolistado LIKE '$Buscar'";
           		 	$resultl=mysqli_query($conexion,$sqll);
 
           		 	while ($mostrar=mysqli_fetch_row($resultl)) {

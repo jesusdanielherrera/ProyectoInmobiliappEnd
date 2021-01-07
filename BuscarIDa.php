@@ -90,7 +90,7 @@
 		            </tr>
 		          </thead>
 		          <?php
-          		 	$sqll="SELECT * FROM registroarriendo where iddelestadoP LIKE '$Buscar'";
+          		 	$sqll="SELECT * FROM registroarriendo where iddelestadoP LIKE '$Buscar' OR tipolistado LIKE '$Buscar'";
           		 	$resultl=mysqli_query($conexion,$sqll);
 
           		 	while ($mostrar=mysqli_fetch_row($resultl)) {

@@ -158,8 +158,8 @@
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                             Estado: <br>
                             <select class="form-control" id="tipolistado">
-                              <option>En Venta</option>
-                              <option>Vendida</option>
+                              <option>NO PAGO</option>
+                              <option>PAGADO</option>
                             </select>
                           </div>
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">

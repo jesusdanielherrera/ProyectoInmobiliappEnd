@@ -57,7 +57,7 @@
       </nav>
       <div class="container-fluid">
         <div class="table-bordered table-responsive"><hr>
-          < <th><B>CONTABILIDAD EN VENTAS</B></th> >
+          <th><B>CONTABILIDAD EN VENTAS</B></th> 
 
           <hr>
         </div>
