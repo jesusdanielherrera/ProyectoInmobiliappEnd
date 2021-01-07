@@ -13,7 +13,7 @@
      if(isset($_SESSION['user'])){ 
       
       $usuario = $_SESSION['user'];
-      $sql = "SELECT * from login where usuario='$usuario' and tipodeusuario='Administrador'";
+      $sql = "SELECT * from login where usuario='$usuario' and tipodeusuario='Asesor'";
       $result=mysqli_query($conexion,$sql);
 ?>
 <body>
@@ -22,12 +22,12 @@
        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        <a class="navbar-brand" href="ModuloAdministrativo.php">
+        <a class="navbar-brand" href="ModuloAsesor.php">
            <img src="img/inmoviliapp22.png" class="d-inline-block align-top" alt="Logo boostrap"  style="width: 300px">
         </a>
       <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
         <div class="navbar-nav ">
-            <b><a type="button" class="nav-item nav-link active btn-outline-secondary" style="margin:5px;" href="ModuloAdministrativo.php">Modulo Administrativo</a></b>
+            <b><a type="button" class="nav-item nav-link active btn-outline-secondary" style="margin:5px;" href="ModuloAsesor.php">Modulo Administrativo</a></b>
         </div>
       </div>
        <form class="form-inline my-2 my-lg-0">
@@ -38,7 +38,7 @@
            <?php       
             while ($dato=mysqli_fetch_array($result)) {
             ?><b>
-            <?php  echo $dato['Nombre'];}
+            <?php  echo $dato['Nombre'];
              ?>
            </b>
         </a>
@@ -52,15 +52,22 @@
     </nav>
      	<nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page"><a href="ModuloAdministrativo.php">Modulo Administrativo</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><a href="ModuloAsesor.php">Modulo Administrativo</a></li>
           <li class="breadcrumb-item active" aria-current="page">Ventas Realizadas</li>
         </ol>
           		<table class="container table table-bordered table-responsive">
 		          <thead>
 		            <th colspan="8"><b><h5>VIVIENDAS EN VENTAS</h5></b></th>
-                <form action="BuscarIDp.php" method="get" class="form-search">
+                    <?php
+                        $Buscar = strtolower($_REQUEST['Buscar']);
+
+                        if(empty($Buscar)){
+                            header("Location: VentasrealizadasA.php");
+                        }
+                    ?>
+                <form action="BuscarIDpA.php" method="get" class="form-search">
                 <!-- BUSCADOR POR ID DE ARRIENDO -->
-                <th colspan="3"> <input type="text" class="form-control" id="Buscar" name="Buscar" ></th>
+                <th colspan="3"> <input type="text" class="form-control" id="Buscar" name="Buscar" value="<?php echo $Buscar;?>" ></th>
                 <th colspan="3"> <input type="submit" class="btn btn-primary btn-block" id="BuscarID" Value="Buscar..." ></th>
                 </form>
 		            <tr class="text-center">             
@@ -80,7 +87,8 @@
 		            </tr>
 		          </thead>
 		          <?php
-          		 	$sqll="SELECT * FROM registroventa";
+                  $datos = $dato['idusuario'];
+          		 	$sqll="SELECT * FROM registroventa where idarriendov ='$datos' AND iddelestadoP LIKE '$Buscar' OR tipolistado LIKE '$Buscar'";}
           		 	$resultl=mysqli_query($conexion,$sqll);
 
           		 	while ($mostrar=mysqli_fetch_row($resultl)) {
@@ -155,11 +163,11 @@
                             <input type="text" class="form-control" id="tipoPropiedad" >
                           </div>
                        
-                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                          <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
                             Estado: <br>
                             <select class="form-control" id="tipolistado">
-                              <option>NO PAGO</option>
-                              <option>PAGO</option>
+                              <option>En Venta</option>
+                              <option>Vendida</option>
                             </select>
                           </div>
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
@@ -170,7 +178,7 @@
                           <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
                             Vistas de la Propiedad:   <br>
                              <input type="text" class="form-control" id="vistapropiedad" >
-                          </div> 
+                          </div>
                 
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                             Dormitorios:<br>
@@ -197,7 +205,7 @@
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-primary btn-block" id="actualizadatosv"data-dismiss="modal">Actualizar</button>
+                          <button type="button" class="btn btn-secondary" id="actualizadatosv"data-dismiss="modal">Actualizar</button>
                         </div>
                       </div>
                     </div>

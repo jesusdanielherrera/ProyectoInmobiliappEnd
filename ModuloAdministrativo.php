@@ -110,8 +110,8 @@
           </div>
           <div class="col">
              <h4>Contabilidad</h4>
-            <a href="ContaVenta.php" type="button" class="btn btn-danger">Ventas</a>
-            <a href="ContaArriendo.php" type="button" class="btn btn-danger">Arriendo</a>
+            <a href="ContaVenta.php" type="button" class="btn btn-danger">Contabilidad Ventas</a>
+            <a href="ContaArriendo.php" type="button" class="btn btn-danger">Contabilidad Arriendo</a>
           </div>
         </div>
         <hr>

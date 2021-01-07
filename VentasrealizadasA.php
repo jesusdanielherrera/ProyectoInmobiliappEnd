@@ -58,7 +58,12 @@
         </ol>
           		<table class="container table table-bordered table-responsive">
 		          <thead>
-		            <th colspan="12"><b><h5>VIVIENDAS EN VENTAS</h5></b></th>
+		            <th colspan="8"><b><h5>VIVIENDAS EN VENTAS</h5></b></th>
+                <form action="BuscarIDpA.php" method="get" class="form-search">
+                <!-- BUSCADOR POR ID DE ARRIENDO -->
+                <th colspan="3"> <input type="text" class="form-control" id="Buscar" name="Buscar" ></th>
+                <th colspan="3"> <input type="submit" class="btn btn-primary btn-block" id="BuscarID" Value="Buscar..." ></th>
+                </form>
 		            <tr class="text-center">             
 		             
 		              <th scope="col" >ID Arriendo</th>
@@ -95,17 +100,17 @@
           		  ?>
 		          <tbody>
 	                  <tr>
-	                      <th scope="row" class="text-center"> <?php echo $mostrar[0];?></th>
-	                      <td class="text-center"> <?php echo $mostrar[1]; ?></td>
-	                      <td class="text-center"> <?php echo $mostrar[2]; ?></td>
-	                      <td class="text-center"> <?php echo $mostrar[3] ;?></td>
-	                      <td class="text-center"> <?php echo $mostrar[4] ;?></td>
-	                      <td class="text-center"> <?php echo $mostrar[5] ;?></td>
-	                      <td class="text-center"> <?php echo $mostrar[6] ;?></td>
-	                      <td class="text-center"> <?php echo $mostrar[7] ;?></td>
-	                      <td class="text-center"> <?php echo $mostrar[8] ;?></td>
-	                      <td class="text-center"> <?php echo $mostrar[9] ;?></td>
-	                      <td class="text-center"> <?php echo $mostrar[10] ;?></td>
+	                      <th scope="row" > <?php echo $mostrar[0];?></th>
+	                      <td > <?php echo $mostrar[1]; ?></td>
+	                      <td > <?php echo $mostrar[2]; ?></td>
+	                      <td > <?php echo $mostrar[3] ;?></td>
+	                      <td > <?php echo $mostrar[4] ;?></td>
+	                      <td > <?php echo $mostrar[5] ;?></td>
+	                      <td > <?php echo $mostrar[6] ;?></td>
+	                      <td > <?php echo $mostrar[7] ;?></td>
+	                      <td > <?php echo $mostrar[8] ;?></td>
+	                      <td > <?php echo $mostrar[9] ;?></td>
+	                      <td > <?php echo $mostrar[10] ;?></td>
 	                      <td>
 	                      	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Editar" onclick="agregaforma('<?php echo $datosv ?>')">
                           Editar</button>
@@ -152,8 +157,11 @@
                           </div>
                        
                           <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
-                            Tipo de Listado: <br>
-                             <input type="text" class="form-control" id="tipolistado" >
+                            Estado: <br>
+                            <select class="form-control" id="tipolistado">
+                              <option>NO PAGO</option>
+                              <option>PAGO</option>
+                            </select>
                           </div>
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                             Precio de Propiedad:   <br>

@@ -13,7 +13,7 @@
      if(isset($_SESSION['user'])){ 
       
       $usuario = $_SESSION['user'];
-      $sql = "SELECT * from login where usuario='$usuario' and tipodeusuario='Asesor'";
+      $sql = "SELECT  * from login where usuario='$usuario' and tipodeusuario='Asesor'";
       $result=mysqli_query($conexion,$sql);
 ?>
 <body>
@@ -52,24 +52,32 @@
     </nav>
      	<nav aria-label="breadcrumb" class="container-fluid">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page"><a href="ModuloAsesor.php">Modulo Administrativo</a></li>
+          <li class="breadcrumb-item" aria-current="page"><a href="ModuloAsesor.php">Modulo Administrativo</a></li>
           <li class="breadcrumb-item active" aria-current="page">Arriendo Realizados</li>
         </ol>
             <div class="container-fluid table-bordered table-responsive">
+     			<br>
+          		<h5>Tabla de Registros Arriendos</h5>
+                  <?php
+                        $Buscar = strtolower($_REQUEST['Buscar']);
 
+                        if(empty($Buscar)){
+                            header("Location: ArriendorealizadosA.php");
+                        }
+                    ?>
           		<table class="table table-bordered table-responsive">
 		          <thead>
 		            <th colspan="8"><b><h5>VIVIENDAS EN ARRIENDO</h5></b></th>
                 <form action="BuscarIDaA.php" method="get" class="form-search">
                 <!-- BUSCADOR POR ID DE ARRIENDO -->
-                <th colspan="3"> <input type="text" class="form-control" id="Buscar" name="Buscar" ></th>
-                <th colspan="3"> <input type="submit" class="btn btn-primary btn-block" id="BuscarID" Value="Buscar..." ></th>
+                <th colspan="3"> <input type="text" class="form-control" id="Buscar" name="Buscar" value="<?php echo $Buscar;?>" ></th>
+                <th colspan="3"> <input type="submit" class="btn btn-primary btn-block" id="BuscarIDa" Value="Buscar..." ></th>
                 </form>
 		            <tr class="text-center">             
 		             
 		              <th scope="col" >ID Arriendo</th>
                   <th scope="col" >ID Usuario</th>
-		              <th scope="col" >tipo de Propiedad</th>
+		              <th scope="col" >tipo de arriendo</th>
 		              <th scope="col" >Estado </th>
 		              <th scope="col" >Precio </th>
 		              <th scope="col" >Vistas </th>
@@ -82,8 +90,8 @@
 		            </tr>
 		          </thead>
 		          <?php
-                $datoss = $dato['idusuario'];}
-          		 	$sqll="SELECT * FROM registroarriendo where idarriendoa ='$datoss'";
+                     $datoss = $dato['idusuario'];}
+          		 	$sqll="SELECT * FROM registroarriendo where idarriendoa='$datoss' AND iddelestadoA LIKE '$Buscar' OR tipolistado LIKE '$Buscar'";
           		 	$resultl=mysqli_query($conexion,$sqll);
 
           		 	while ($mostrar=mysqli_fetch_row($resultl)) {
@@ -115,12 +123,15 @@
 	                      <td >
 	                      	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Editar" onclick="agregaform('<?php echo $datos ?>')">
                           Editar</button>
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Eliminar" onclick="preguntarSiNo('<?php echo $mostrar[0] ?>')">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Eliminar"  onclick="preguntarSiNo('<?php echo $mostrar[0] ?>')">
                           Eliminar</button>
 	                      </td>               
 	                  </tr>
 	              </tbody>
-                <?php } ?> 		
+                <?php } ?>
+		        	</div>
+              <hr>
+          </div>   		
 <?php  }else{
 	header("Location: php/Validar.php");
 } ?>
@@ -158,10 +169,7 @@
                  
                     <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
                       Estado: <br>
-                            <select class="form-control" id="tipolistado">
-                              <option>NO PAGO</option>
-                              <option>PAGO</option>
-                            </select>
+                       <input type="text" class="form-control" id="tipolistado">
                     </div>
 
                     <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
@@ -201,7 +209,7 @@
             </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" id="actualizadatos" data-dismiss="modal">Actualizar</button>
+                          <button type="button" class="btn btn-secondary" id="actualizadatos"data-dismiss="modal">Actualizar</button>
                         </div>
                       </div>
                     </div>

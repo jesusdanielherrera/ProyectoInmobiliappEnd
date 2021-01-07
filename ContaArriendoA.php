@@ -58,10 +58,11 @@
       <div class="container">
         <table class="table table-bordered">
           <thead>
-            <th colspan="5"><b><h5>VIVIENDAS EN ARRIENDOS</h5></b></th>
+            <th colspan="6"><b><h5>VIVIENDAS EN ARRIENDOS</h5></b></th>
             <tr class="text-center">
               <th scope="cole"  class="text-center">ID</th>
-              <th scope="cole"  class="text-center">ID Asesor o Administrador</th>
+              <th scope="cole"  class="text-center">ID USUARIO</th>
+              <th scope="cole"  class="text-center">ESTADO</th>
               <th scope="cole"  class="text-center">VALOR DE VENTA</th>
               <th scope="cole"  class="text-center">VALOR COMISION</th>
               <th scope="cole"  class="text-center">VALOR A PAGAR</th>
@@ -70,7 +71,7 @@
            <tbody>
               <?php
                $datos = $dato['idusuario'];
-             $sqls = "SELECT  idarriendoa, iddelestadoA, precioarriendo, (precioarriendo*0.10) as result from registroarriendo  where idarriendoa='$datos'";}
+             $sqls = "SELECT  idarriendoa, iddelestadoA, precioarriendo, tipolistado, (precioarriendo*0.10) as result from registroarriendo  where idarriendoa='$datos' AND tipolistado = 'PAGO'";}
              $results=mysqli_query($conexion,$sqls);   
              $total=0;
              while ($datos=mysqli_fetch_array($results)) {
@@ -79,11 +80,12 @@
                   <tr>
                       <th scope="row" class="text-center"> <?php echo $datos['iddelestadoA'];?></th>
                       <td class="text-center"> <?php echo $datos['idarriendoa']; ?></td>
+                      <td class="text-center"> <?php echo $datos['tipolistado '];?></td>
                       <td class="text-center"> <?php echo $datos['precioarriendo']; ?></td>
                       <td class="text-center">10%</td>
                       <td class="text-center"><?php echo $datos['result'] ;}?></td>
                   </tr>
-                  <th colspan="4" class="text-center"><b>TOTAL DE ARRIENDOS</b></th><td class="text-center"><?= $total ;?></td>
+                  <th colspan="5" class="text-center"><b>TOTAL DE ARRIENDOS</b></th><td class="text-center"><?= $total ;?></td>
                 </tbody>
         </table>
       </div>
