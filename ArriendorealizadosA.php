@@ -160,7 +160,6 @@
                       Estado: <br>
                             <select class="form-control" id="tipolistado">
                               <option>NO PAGO</option>
-                              <option>PAGO</option>
                             </select>
                     </div>
 

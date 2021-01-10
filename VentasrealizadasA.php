@@ -160,7 +160,6 @@
                             Estado: <br>
                             <select class="form-control" id="tipolistado">
                               <option>NO PAGO</option>
-                              <option>PAGO</option>
                             </select>
                           </div>
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
