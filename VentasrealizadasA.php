@@ -90,6 +90,7 @@
                       $datosv=$mostrar[0]."||".
                              $mostrar[1]."||".
                              $mostrar[2]."||".
+                             $mostrar[3]."||".
                              $mostrar[4]."||".
                              $mostrar[5]."||".
                              $mostrar[6]."||".
@@ -166,6 +167,10 @@
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                             Precio de Propiedad:   <br>
                              <input type="text" class="form-control" id="preciopropiedad" >
+                          </div>
+                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            Estado:   <br>
+                             <input type="text" class="form-control" id="tipolistado" value="No pago">
                           </div>
                  
                           <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">

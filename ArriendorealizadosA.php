@@ -164,7 +164,10 @@
                               <option>Finca</option>
                             </select>
                     </div>
-
+                    <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
+                      Estado:   <br>
+                       <input type="text" class="form-control" id="tipolistado" value="No Pago">
+                    </div>
                     <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
                       Precio de Arriendo:   <br>
                        <input type="text" class="form-control" id="precioarriendo">
