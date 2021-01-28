@@ -156,7 +156,7 @@
                     </div>
                     <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                       Tipo de Propiedad: <br>
-                      <select class="form-control" type="text" id="tipoPropiedad">
+                      <select class="form-control" type="text" id="tipoarriendo">
                               <option>---</option>
                               <option>Casa</option>
                               <option>Apartamento</option>

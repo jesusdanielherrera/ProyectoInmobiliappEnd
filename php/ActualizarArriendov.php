@@ -4,6 +4,7 @@
 	$iddelestadoP=$_POST['iddelestadoP'];
 	$idarriendov=$_POST['idarriendov'];
 	$tipoPropiedad=$_POST['tipoPropiedad'];
+	$tipolistado=$_POST['tipolistado'];
 	$preciopropiedad=$_POST['preciopropiedad'];
 	$vistapropiedad=$_POST['vistapropiedad'];
 	$dormitorios=$_POST['dormitorios'];
@@ -14,7 +15,8 @@
 
 	$sql = "UPDATE registroventa SET iddelestadoP='$iddelestadoP',
 										idarriendov='$idarriendov', 
-										tipoPropiedad='$tipoPropiedad',  
+										tipoPropiedad='$tipoPropiedad', 
+										tipolistado='$tipolistado', 
 										preciopropiedad='$preciopropiedad', 
 										vistapropiedad='$vistapropiedad', 
 										dormitorios='$dormitorios',

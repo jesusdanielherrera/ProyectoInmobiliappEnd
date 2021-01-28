@@ -71,7 +71,7 @@
               <th scope="cole"  class="text-center">ESTADO</th>
               <th scope="cole"  class="text-center">VALOR DE ARRIENDO</th>
               <th scope="cole"  class="text-center">VALOR COMISION</th>
-              <th scope="cole"  class="text-center">VALOR A PAGAR</th>
+              <th scope="cole"  class="text-center">COMISION A PAGAR</th>
             </tr>
           </thead>
            <tbody>

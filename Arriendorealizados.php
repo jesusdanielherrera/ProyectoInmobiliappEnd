@@ -154,6 +154,16 @@
                       <input type="text" class="form-control" id="iddelestadoA" >
                     </div>
                     <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                      Tipo de Propiedad: <br>
+                      <select class="form-control" type="text" id="tipoarriendo">
+                              <option>---</option>
+                              <option>Casa</option>
+                              <option>Apartamento</option>
+                              <option>Local</option>
+                              <option>Finca</option>
+                            </select>
+                    </div>
+                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                       Id Acesor o Administrador: <br>
                       <input type="text" class="form-control" id="idarriendoa">
                     </div>
@@ -164,16 +174,7 @@
                               <option>PAGO</option>
                             </select>
                     </div>
-                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      Tipo de Propiedad: <br>
-                      <select class="form-control" type="text" id="tipoPropiedad">
-                              <option>---</option>
-                              <option>Casa</option>
-                              <option>Apartamento</option>
-                              <option>Local</option>
-                              <option>Finca</option>
-                            </select>
-                    </div>
+                    
                     <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
                       Precio de Arriendo:   <br>
                        <input type="text" class="form-control" id="precioarriendo">

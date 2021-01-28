@@ -149,15 +149,21 @@
                              Id  Venta: <br>
                             <input type="text" class="form-control" id="iddelestadoP" >
                           </div>
+                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                            Tipo de Propiedad: <br>
+                            <select class="form-control" type="text" id="tipoPropiedad">
+                                    <option>---</option>
+                                    <option>Casa</option>
+                                    <option>Apartamento</option>
+                                    <option>Local</option>
+                                    <option>Finca</option>
+                                  </select>
+                          </div>
                            <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                              Id Acesor o Administrador: <br>
                             <input type="text" class="form-control" id="idarriendov" >
                           </div>
-                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                            Tipo de Propiedad: <br>
-                            <input type="text" class="form-control" id="tipoPropiedad" >
-                          </div>
-                       
+                                                    
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                             Estado: <br>
                             <select class="form-control" id="tipolistado">
@@ -165,16 +171,6 @@
                               <option>PAGO</option>
                             </select>
                           </div>
-                          <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      Tipo de Propiedad: <br>
-                      <select class="form-control" type="text" id="tipoPropiedad">
-                              <option>---</option>
-                              <option>Casa</option>
-                              <option>Apartamento</option>
-                              <option>Local</option>
-                              <option>Finca</option>
-                            </select>
-                    </div>
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                             Precio de Propiedad:   <br>
                              <input type="text" class="form-control" id="preciopropiedad" >
@@ -208,6 +204,7 @@
                             PISO #: <br>
                              <input type="text" class="form-control" id="piso" >
                           </div>
+
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-primary btn-block" id="actualizadatosv"data-dismiss="modal">Actualizar</button>
