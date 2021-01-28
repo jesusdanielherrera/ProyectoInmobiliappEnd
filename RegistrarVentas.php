@@ -38,7 +38,7 @@
            <?php       
             while ($dato=mysqli_fetch_array($result)) {
             ?><b>
-            <?php  echo $dato['Nombre'];}
+            <?php  echo $dato['Nombre'];
              ?>
            </b>
         </a>
@@ -73,17 +73,13 @@
                     <hr>
                   <div class="row">
                      <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                       Id Acesor o Administrador: <br>
-                      <input type="text" class="form-control" id="idarriendov" placeholder="id del usuario">
-                    </div>
-                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
-                      Tipo de Propiedad: <br>
-                      <input type="text" class="form-control" id="tipoPropiedad" placeholder="Casa">
+                       Id Asesor o Administrador: <br>
+                      <input type="text" class="form-control" id="idarriendov" value="<?php echo $dato['idusuario'];}?>">
                     </div>
                  
                     <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
-                      Tipo de Listado: <br>
-                       <input type="text" class="form-control" id="tipolistado" placeholder="En Venta">
+                       Estado: <br>
+                       <input type="text" class="form-control" id="tipolistado" value="No Pago">
                     </div>
                     <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                       Precio de Propiedad:   <br>
@@ -108,6 +104,16 @@
                     <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                       Terrenos :   <br>
                        <input type="text" class="form-control" id="terrenos" placeholder="280 m2">
+                    </div>
+                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                      Tipo de Propiedad: <br>
+                      <select class="form-control" type="text" id="tipoPropiedad">
+                              <option>---</option>
+                              <option>Casa</option>
+                              <option>Apartamento</option>
+                              <option>Local</option>
+                              <option>Finca</option>
+                            </select>
                     </div>
                   </div>
                 <br>
@@ -192,7 +198,10 @@
                       CIUDAD: <br>
                       <input type="text" class="form-control" id="ciudad" placeholder="Baq">
                     </div>
-                    
+                    <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
+                      DIRECCION: <br>
+                      <input type="text" class="form-control" id="direccion" placeholder="Direccion">
+                    </div>
                     <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                       PISO #: <br>
                        <input type="text" class="form-control" id="piso" placeholder="0">
@@ -335,6 +344,9 @@
       }else if ($('#Cercania1').val()==""){
         alertify.alert("Debes Agregar una Cercania");
         return false;
+      }else if ($('#direccion').val()==""){
+        alertify.alert("Debes Agregar una Cercania");
+        return false;
       }
 
       cadena ="idarriendov="+ $('#idarriendov').val()
@@ -359,7 +371,8 @@
               +"&Cercania2="+ $('#Cercania2').val()
               +"&Cercania3="+ $('#Cercania3').val()
               +"&Cercania4="+ $('#Cercania4').val()
-              +"&Cercania5="+ $('#Cercania5').val();
+              +"&Cercania5="+ $('#Cercania5').val()
+              +"&direccion="+ $('#direccion').val();
               $.ajax({
                   type:"POST",
                   url:"php/registroventa.php",

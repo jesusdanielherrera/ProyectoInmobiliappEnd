@@ -53,7 +53,7 @@
      	<nav aria-label="breadcrumb" class="container-fluid">
         <ol class="breadcrumb">
           <li class="breadcrumb-item active" aria-current="page"><a href="ModuloAsesor.php">Modulo Administrativo</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Modulo Administrativo</li>
+          <li class="breadcrumb-item active" aria-current="page">Ventas realizadas</li>
           
         </ol>
           		<table class="container table table-bordered table-responsive">
@@ -77,6 +77,7 @@
 		              <th scope="col" >Terrenos </th>
 		              <th scope="col" >Ciudad </th>
 		              <th scope="col" >Piso</th>
+                  <th scope="col" >direccion</th>
 		              <th colspan="2" >Operar</th>
 		            </tr>
 		          </thead>
@@ -89,14 +90,14 @@
                       $datosv=$mostrar[0]."||".
                              $mostrar[1]."||".
                              $mostrar[2]."||".
-                             $mostrar[3]."||".
                              $mostrar[4]."||".
                              $mostrar[5]."||".
                              $mostrar[6]."||".
                              $mostrar[7]."||".
                              $mostrar[8]."||".
                              $mostrar[9]."||".
-                             $mostrar[10];
+                             $mostrar[10]."||".
+                             $mostrar[23] ;
           		  ?>
 		          <tbody>
 	                  <tr>
@@ -111,11 +112,12 @@
 	                      <td > <?php echo $mostrar[8] ;?></td>
 	                      <td > <?php echo $mostrar[9] ;?></td>
 	                      <td > <?php echo $mostrar[10] ;?></td>
+                        <td > <?php echo $mostrar[23] ;?></td>
 	                      <td>
 	                      	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Editar" onclick="agregaforma('<?php echo $datosv ?>')">
                           Editar</button>
 
-                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Eliminar" onclick="preguntarSiNo('<?php echo $mostrar[0] ?>')">
+                          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Eliminar" onclick="preguntarSiNoP('<?php echo $mostrar[0] ?>')">
                           Eliminar</button>
 	                      </td>               
 	                  </tr>
@@ -153,14 +155,13 @@
                           </div>
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                             Tipo de Propiedad: <br>
-                            <input type="text" class="form-control" id="tipoPropiedad" >
-                          </div>
-                       
-                          <div class="col-sm-auto col-md-auto col-xl-auto"style="margin: 10px;">
-                            Estado: <br>
-                            <select class="form-control" id="tipolistado">
-                              <option>NO PAGO</option>
-                            </select>
+                            <select class="form-control" type="text" id="tipoPropiedad">
+                                    <option>---</option>
+                                    <option>Casa</option>
+                                    <option>Apartamento</option>
+                                    <option>Local</option>
+                                    <option>Finca</option>
+                                  </select>
                           </div>
                           <div class="col-sm-auto col-md-auto col-xl-auto" style="margin: 10px;">
                             Precio de Propiedad:   <br>

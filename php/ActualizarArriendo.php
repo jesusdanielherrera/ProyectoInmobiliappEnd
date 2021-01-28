@@ -4,7 +4,7 @@
 	$iddelestadoA=$_POST['iddelestadoA'];
 	$idarriendoa=$_POST['idarriendoa'];
 	$tipoarriendo=$_POST['tipoarriendo'];
-	$tipolistado=$_POST['tipolistado'];
+	
 	$precioarriendo=$_POST['precioarriendo'];
 	$vistaarriendo=$_POST['vistaarriendo'];
 	$dormitorios=$_POST['dormitorios'];
@@ -16,7 +16,7 @@
 	$sql = "UPDATE registroarriendo SET iddelestadoA='$iddelestadoA',
 										idarriendoa='$idarriendoa', 
 										tipoarriendo='$tipoarriendo', 
-										tipolistado='$tipolistado', 
+										
 										precioarriendo='$precioarriendo', 
 										vistaarriendo='$vistaarriendo', 
 										dormitorios='$dormitorios',

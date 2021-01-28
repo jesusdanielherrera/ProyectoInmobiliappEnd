@@ -23,10 +23,11 @@
 	$Cercania3=$_POST['Cercania3'];
 	$Cercania4=$_POST['Cercania4'];
 	$Cercania5=$_POST['Cercania5'];
+	$direccion=$_POST['direccion'];
 
 
-	$sql="INSERT into registroventa (idarriendov,tipoPropiedad,tipolistado,preciopropiedad,vistapropiedad,dormitorios,antiguedad, terrenos, ciudad, piso, longitud, latitud, caracteristica1,caracteristica2,caracteristica3,caracteristica4,caracteristica5,Cercania1,Cercania2,Cercania3,Cercania4,Cercania5)
-		  VALUES ('$idarriendov','$tipoPropiedad','$tipolistado','$preciopropiedad','$vistapropiedad', '$Dormitorios','$antiguedad','$terrenos','$ciudad','$piso','$longitud','$latitud','$caracteristica1','$caracteristica2','$caracteristica3','$caracteristica4','$caracteristica5','$Cercania1','$Cercania2','$Cercania3','$Cercania4','$Cercania5')";
+	$sql="INSERT into registroventa (idarriendov,tipoPropiedad,tipolistado,preciopropiedad,vistapropiedad,dormitorios,antiguedad, terrenos, ciudad, piso, longitud, latitud, caracteristica1,caracteristica2,caracteristica3,caracteristica4,caracteristica5,Cercania1,Cercania2,Cercania3,Cercania4,Cercania5,direccion)
+		  VALUES ('$idarriendov','$tipoPropiedad','$tipolistado','$preciopropiedad','$vistapropiedad', '$Dormitorios','$antiguedad','$terrenos','$ciudad','$piso','$longitud','$latitud','$caracteristica1','$caracteristica2','$caracteristica3','$caracteristica4','$caracteristica5','$Cercania1','$Cercania2','$Cercania3','$Cercania4','$Cercania5','$direccion')";
 
 	echo $result=mysqli_query($conexion,$sql);
 

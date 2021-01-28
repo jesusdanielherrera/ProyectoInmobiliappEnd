@@ -5,7 +5,7 @@ function agregaform(datos){
 	$('#iddelestadoA').val(d[0]);
 	$('#idarriendoa').val(d[1]);
 	$('#tipoarriendo').val(d[2]);
-	$('#tipolistado').val(d[3]);
+	
 	$('#precioarriendo').val(d[4]);
 	$('#vistaarriendo').val(d[5]);
 	$('#dormitorios').val(d[6]);
@@ -20,7 +20,7 @@ function actualizaDatos() {
 	iddelestadoA=$('#iddelestadoA').val();
 	idarriendoa=$('#idarriendoa').val();
 	tipoarriendo=$('#tipoarriendo').val();
-	tipolistado=$('#tipolistado').val();
+	
 	precioarriendo=$('#precioarriendo').val();
 	vistaarriendo=$('#vistaarriendo').val();
 	dormitorios=$('#dormitorios').val();
@@ -32,7 +32,6 @@ function actualizaDatos() {
 	cadena="idarriendoa="+idarriendoa+
 		   "&iddelestadoA="+iddelestadoA+
 		   "&tipoarriendo="+tipoarriendo+
-		   "&tipolistado="+tipolistado+
 		   "&precioarriendo="+precioarriendo+
 		   "&vistaarriendo="+vistaarriendo+
 		   "&dormitorios="+dormitorios+
@@ -62,7 +61,6 @@ function agregaforma(datosv){
 	$('#iddelestadoP').val(d[0]);
 	$('#idarriendov').val(d[1]);
 	$('#tipoPropiedad').val(d[2]);
-	$('#tipolistado').val(d[3]);
 	$('#preciopropiedad').val(d[4]);
 	$('#vistapropiedad').val(d[5]);
 	$('#dormitorios').val(d[6]);
@@ -89,7 +87,6 @@ function actualizaDatosv() {
 	cadena="iddelestadoP="+iddelestadoP+
 		   "&idarriendov="+idarriendov+
 		   "&tipoPropiedad="+tipoPropiedad+
-		   "&tipolistado="+tipolistado+
 		   "&preciopropiedad="+preciopropiedad+
 		   "&vistapropiedad="+vistapropiedad+
 		   "&dormitorios="+dormitorios+
@@ -168,11 +165,11 @@ function actualizaDatosu() {
 
 function preguntarSiNo(iddelestadoA){
 	alertify.confirm('Eliminar Datos', '¿Estar seguro de Eliminar este dato?'
-				, function(){ eliminardato(iddelestadoA) }
+				, function(){ eliminardatos(iddelestadoA) }
                 , function(){ alertify.error('Cancel')});
 }
 
-function eliminardato(iddelestadoA){
+function eliminardatos(iddelestadoA){
 	cadena="iddelestadoA="+iddelestadoA;
 
 	$.ajax({
@@ -213,7 +210,7 @@ function eliminardatoP(iddelestadoP){
 
 function preguntarSiNoU(idusuario){
 	alertify.confirm('Eliminar Datos', '¿Estar seguro de Eliminar este dato?'
-				, () => { eliminardato(idusuario )}
+				, function() { eliminardato(idusuario )}
                 , function(){ alertify.error('Cancel')});
 }
 
