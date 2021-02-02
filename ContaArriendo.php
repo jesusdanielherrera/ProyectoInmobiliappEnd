@@ -76,7 +76,7 @@
           </thead>
            <tbody>
               <?php
-             $sqls = "SELECT  idarriendoa, iddelestadoA, precioarriendo, tipolistado, (precioarriendo*0.10) as result from registroarriendo where tipolistado = 'PAGO'";
+             $sqls = "SELECT  idarriendoa, iddelestadoA, precioarriendo, tipolistado, (precioarriendo*0.10) as result from registroarriendo";
              $results=mysqli_query($conexion,$sqls);   
              $total = 0; 
              while ($datos=mysqli_fetch_array($results)) {
@@ -90,7 +90,7 @@
                       <td class="text-center"><?php echo $datos['result'] ;?></td>
                       <td class="text-center"> <?php echo $datos['tipolistado']; }?></td>
                   </tr>
-                  <th colspan="5" class="text-center"><b>TOTAL DE ARRIENDOS</b></th><td class="text-center"><?= $total ;?></td>
+                  <th colspan="4" class="text-center"><b>TOTAL DE ARRIENDOS</b></th><td class="text-center"><?= $total ;?></td>
                 </tbody>
         </table>
       </div>

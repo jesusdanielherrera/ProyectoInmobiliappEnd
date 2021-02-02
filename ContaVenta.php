@@ -81,7 +81,7 @@
           
            <tbody>  
               <?php
-             $sqls = "SELECT  idarriendov,iddelestadoP, preciopropiedad, tipolistado,(preciopropiedad*0.10) as result from registroventa WHERE tipolistado = 'PAGO'";
+             $sqls = "SELECT  idarriendov,iddelestadoP, preciopropiedad, tipolistado,(preciopropiedad*0.10) as result from registroventa ";
              $results=mysqli_query($conexion,$sqls);   
              $total = 0; 
              while ($datos=mysqli_fetch_array($results)) {
@@ -95,7 +95,7 @@
                       <td class="text-center"><?php echo $datos['result'] ;?></td>
                       <td class="text-center"> <?php echo $datos['tipolistado'];}?></td>
                   </tr>
-                  <th colspan="5" class="text-center"><b>TOTAL DE VENTAS</b></th><td class="text-center"><?= $total ;?></td>
+                  <th colspan="4" class="text-center"><b>TOTAL DE VENTAS</b></th><td class="text-center"><?= $total ;?></td>
                 </tbody>
         </table>
       </div>
