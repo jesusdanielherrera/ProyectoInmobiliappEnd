@@ -84,7 +84,7 @@
                       <td class="text-center"> <?php echo $datos['idarriendov']; ?></td>
                      
                       <td class="text-center"> <?php echo $datos['preciopropiedad']; ?></td>
-                      <td class="text-center">10%</td>
+                      <td class="text-center">10 %</td>
                       <td class="text-center"><?php echo $datos['result'] ;?></td>
                       <td class="text-center"> <?php echo $datos['tipolistado'];}?></td>
                   </tr>
